@@ -1,3 +1,6 @@
+// ----------------------------------------------------------------
+// Sliding window solution O(N^2)
+// ----------------------------------------------------------------
 public class Solution {
     public int SubarraySum(int[] nums, int k) {
         int counter = 0;
@@ -18,20 +21,18 @@ public class Solution {
         return counter;
     }
 }
-
 // ----------------------------------------------------------------
-// Dictionary method
+// Dictionary solution O(N)
+// ----------------------------------------------------------------
 public class Solution {
     public int SubarraySum(int[] nums, int k) {
         int counter = 0;
         int total = 0;
         Dictionary <int, int> dict = new Dictionary<int, int>();
-        
-        // for each item: add to the dictionnary as key and sum as a value
-        // then just count the values that are equal to k
         // the mathematical relationship between two cumulative sums 
         // sum[i] - sum[j] = k => sum[j] = sum[i] - k
         //
+        // total 0 = 1
         dict[0] = 1;
         
         for (int i = 0; i<nums.Length; i++){
