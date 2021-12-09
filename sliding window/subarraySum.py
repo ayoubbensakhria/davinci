@@ -1,3 +1,6 @@
+# ----------------------------------------------------------------
+# Sliding window solution O(N^2)
+# ----------------------------------------------------------------
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         counter = 0
@@ -11,9 +14,8 @@ class Solution:
                 if(total == k):
                     counter +=1
         return counter
-
 # ----------------------------------------------------------------
-# Dictionary solution 
+# Dictionary solution O(N)
 # ----------------------------------------------------------------
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
