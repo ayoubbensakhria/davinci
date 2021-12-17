@@ -11,29 +11,23 @@
  */
 public class Solution {
     public ListNode DeleteDuplicates(ListNode head) {
-        // sentinel node as a traversal path terminator
-        // it takes head as next node
-        // the current function returns sentinel.next as duplicate free ListNode
-        // |SENTINEL|--|predecessor|--|head|
-        ListNode sentinel = new ListNode(0, head);
-        // the predecessor = the last node
-        ListNode predecessor = sentinel;
         
-        while (head != null){
-           if(head.next !=null && head.val == head.next.val){
-               // move till the end of duplicates list
-               while(head.next !=null && head.val == head.next.val ){
-                   head = head.next;
-               }
-               // now skip the last duplicate
-               predecessor.next = head.next;
-           } else {
-               // move forward
-               predecessor = predecessor.next;               
-           }
-            // move forward
-            head = head.next;
+        // we need a pointer to point at the head of the list, 
+        // otherwise the whole list will be lost
+        ListNode node = head;
+        
+        while(node != null && node.next != null){          
+            if(node.val == node.next.val){
+                // overwrite head.next with 
+                // head.next.next (delete it)
+                node.next = node.next.next;               
+            } 
+            else {
+                // if different step forward
+                node = node.next;
+            }
         }
-        return sentinel.next;
+        // head is pointed out by node
+        return head;  
     }
 }
