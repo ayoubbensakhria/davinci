@@ -13,34 +13,28 @@ public class Solution {
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
         // construct the sum terms
         // get the sum
-        // convert the sum to a linked list
-        
+        // get the rest (carry)
+        // insert the appropriate val to the appropriate node in result 
         // initialize result, terms and sum
-        ListNode result = new ListNode(0);
-        ListNode sentinel = result;
+        ListNode sentinel = new ListNode(0);
+        ListNode result = sentinel;
         int rest = 0;
         
-        while (l1 != null || l2 !=null){
+        while (l1 != null || l2 !=null || rest>0){
             
             int a = (l1 != null) ? l1.val : 0;
             int b = (l2 != null) ? l2.val : 0;   
             
-            int sum = a + b + rest;   
-            
-            // if sum is > 10
-            if(sum >= 10){
-                rest = sum/10;
-                sum = 0;
-            }
-            
-            result.val = sum;            
-            result.next = new ListNode(0);
+            int sum = a + b + rest;               
+            rest = sum / 10;  // <- returns 0 if < 10, (1, 2, ...) o.w            
+            // we return result.next to avoid 
+            // many if statments
+            result.next = new ListNode(sum%10);      
             result = result.next;
             
-            l1 = l1.next;
-            l2 = l2.next;
-            
+            if(l1 !=null) l1 = l1.next;
+            if(l2 !=null) l2 = l2.next;
         }
-        return sentinel;     
+        return sentinel.next;     
     }
 }
