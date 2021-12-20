@@ -11,19 +11,23 @@
  */
 public class Solution {
     public ListNode ReverseList(ListNode head) {
-        // a stack is ideal to reverse the order 
-        // 1 2 3 -> 2 1 3 -> 2 3 1 -> 3 2 1
-        // store next -> next = current -> store new head
-        
-        ListNode sentinel = null;
+        // principle reverse pointing
+        // 1->2->3->null ::: newHead = null | head = 1->2->3->null:
+        // store next (2->3->null), cut head (null<-1) take head newHead (null<-1) update head with next (2->3->null)
+        // (newHead) null<-1  (head) 2->3->null 
+        // store next (3->null), cut head (null<-2) take head newHead (null<-1<-2) update head (3->null)
+        // null<-1<-2  3->null 
+        // store next (null), cut head (null<-3) take head newHead (null<-1<-2<-3) update head (null)
+        // null<-1<-2<-3    
+        ListNode newHead = null;
         
         while (head != null){
-            // store next
+            // store next to detach it
             ListNode next = head.next;
-            // now change next to new head
-            head.next = sentinel;
+            // reverse pointer to newHead
+            head.next = newHead; // first null detach head
             // store head
-            sentinel = head;
+            newHead = head;
             head = next;
         }
         return sentinel;             
