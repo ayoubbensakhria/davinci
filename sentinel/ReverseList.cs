@@ -30,6 +30,6 @@ public class Solution {
             newHead = head;
             head = next;
         }
-        return sentinel;             
+        return newHead;             
     }
 }
