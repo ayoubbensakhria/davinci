@@ -12,17 +12,19 @@ class KthLargest:
         # is considered the highest priority element.
         heapq.heapify(self.heap)
         while len(self.heap) > k:
-            # Pop and return the smallest item from the heap
+            # Initialization
+            # Pop and keep the k top items
             heapq.heappop(self.heap)
 
     def add(self, val: int) -> int:
         heapq.heappush(self.heap, val)
         if len(self.heap) > self.k:
             heapq.heappop(self.heap)
+        # the kth largest is the smallest value in the list
+        # self.heap[0]
         return self.heap[0]
         
-
-
+        
 # Your KthLargest object will be instantiated and called as such:
 # obj = KthLargest(k, nums)
 # param_1 = obj.add(val)
