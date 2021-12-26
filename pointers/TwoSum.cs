@@ -22,9 +22,10 @@ public class Solution {
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         // there is exactly one solution
-        // dict[target - i] = i example: dict[9-2] = 0
-        // if (exists) dict[i] 
-        // the pair is {dict[nums[i]], i}  example dict[7], and nums[0] = 2
+        // [2,7,11,15] target = 9 EXPECTED [0,1]
+        // dict[target - nums(i)] = i example: dict[9-2] = 0
+        // if (exists) dict[nums(i)] 
+        // the pair is {dict[nums[i]], i} 
         Dictionary<int, int> dict = new Dictionary<int, int>();
         for (int i=0; i<nums.Length; i++){
             if(dict.ContainsKey(nums[i])){
@@ -33,7 +34,7 @@ public class Solution {
                 dict[target-nums[i]] = i;
             }
         }
-    // if no pairs
+    // if no result 
     return new int []{};
     }
 }
