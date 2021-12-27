@@ -1,3 +1,20 @@
+#---------------------------------------------------------------
+# Solution 1
+#---------------------------------------------------------------
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        # sort and group
+        dict = collections.defaultdict(list)
+        # return values
+        for s in strs:
+            sorted_list = list(s)
+            sorted_list.sort()
+            sorted_string = ''.join(sorted_list)        
+            dict[sorted_string].append(s)
+        return dict.values()
+#---------------------------------------------------------------
+# Solution 2
+#---------------------------------------------------------------
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         groups = collections.defaultdict(list)
@@ -6,7 +23,7 @@ class Solution:
         return map(sorted, groups.values())
 
 #----------------------------------------------------------------
-# Solution 2
+# Solution 3
 #----------------------------------------------------------------
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
