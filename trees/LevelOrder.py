@@ -7,6 +7,7 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         result = []
+        # deques are perfect to manipulate queues and stakcs in python
         level = collections.deque([root])
         if root is None:
             return result
