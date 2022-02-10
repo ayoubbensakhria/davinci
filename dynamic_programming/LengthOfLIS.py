@@ -10,4 +10,3 @@ class Solution:
                 if nums[i] > nums[j]:
                     list[i] = max(list[i], 1 + list[j])
         return max(list)
-            
