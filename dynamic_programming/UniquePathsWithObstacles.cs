@@ -11,7 +11,7 @@ public class Solution {
                 if(row[i] == 1)
                     list[i] = 0;
                 // else and if i>0
-                else if(i>0)
+                else if(i>0)     
                     list[i] += list[i-1];
             }
         }
