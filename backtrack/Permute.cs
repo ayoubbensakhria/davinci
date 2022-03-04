@@ -15,7 +15,7 @@ public class Solution {
     }
     public IList<IList<int>> Permute(int[] nums) {
         IList<IList<int>> result = new List<IList<int>>();
-        backtrack(result, new List<int>(), nums);
+        backtrack(result, new List<int>(), nums, 0);
         return result;
     }
 }
