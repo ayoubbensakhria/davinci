@@ -4,14 +4,14 @@ public class Solution {
     public int current_areas = 0;
     
     public int MaxAreaOfIsland(int[][] grid) {
-        // find the number of islands using recursive DFS
-        // count the areas
-        // return the max
-        int islandCount = 0;
+        // island count
+        int count = 0;
         for (int i=0; i<grid.Length; i++){
             for (int j=0; j<grid[i].Length; j++){
-                islandCount += sink(grid, i, j);
+                count += sink(grid, i, j);
+                // take the max_count
                 max_count = Math.Max(max_count, current_areas);
+                // reset current_areas
                 current_areas = 0;
             }
         }
@@ -21,15 +21,15 @@ public class Solution {
     int sink(int[][] grid, int i, int j){
         if (i<0 || j<0 || i==grid.Length || j==grid[i].Length || grid[i][j]==0)
             return 0;
-        // sink current
+        // while recursion count areas
         current_areas = grid[i][j] == 1 ? current_areas + 1 : current_areas;
-        grid[i][j] = 0;
-        
-        // sink adjacent cells
-        sink(grid, i+1, j);
-        sink(grid, i-1, j);
-        sink(grid, i, j+1);
-        sink(grid, i, j-1);
+        // else process
+        grid[i][j] = '0';  // sink current or turn current to visited
+        sink(grid, i+1, j); // sink right, do recursion as current
+        sink(grid, i-1, j); // sink left, do recursion as current
+        sink(grid, i, j+1); // sink down, do recursion as current
+        sink(grid, i, j-1); // sink up, do recursion as current
+        // if all processed --> an island has been found
         return 1;
     }
 }
