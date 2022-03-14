@@ -1,19 +1,15 @@
 // BFS Solution 
 public class Solution {
     public int LadderLength(string beginWord, string endWord, IList<string> wordList) {
-        // the end word must be in the List
-        // All the words in wordList are unique
-        // difference in one letter (one single letter)
-        // if no word in the list return the number of sequences
         // BFS
         // Steps: 
-        // (1) construct a wordSet from the wordList
-        // (2) initialize a queue with the beginWord 
         // (3) set the counter step = 1 (in case no words BFS returns 0)
         // (4) dequeue > replace the current word letters with the alphabet letters > compare
         //     if the word exists in the set remove it from the set and enqueue it increment step
         // (5) if endWord is reached return step+1 
+        // construct a wordSet from the wordList
         HashSet<string> wordSet = new HashSet<string>(wordList);
+        // initialize a queue with the beginWord 
         Queue<string> q = new Queue<string>();
         q.Enqueue(beginWord);
         
