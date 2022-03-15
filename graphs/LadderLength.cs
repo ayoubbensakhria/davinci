@@ -29,7 +29,7 @@ public class Solution {
                             if(nword.ToString() == endWord) return step + 1;
                             // else remove that word from wordSet
                             wordSet.Remove(nword.ToString());
-                            // Enqueue the new word nword
+                            // Enqueue the new word nword (found in the wordSet)
                             q.Enqueue(nword.ToString());
                         }
                     }

@@ -15,8 +15,10 @@ public class Solution {
     public int MaxDepth(TreeNode root) {
         // Binary tree
         // DFS - Recursion problem
+        // base case 
         if(root == null) return 0;
         // else the minimum depth is 1
+        // recursion and compare left to right
         return 1 + Math.Max(MaxDepth(root.right), MaxDepth(root.left));
     }
 }
