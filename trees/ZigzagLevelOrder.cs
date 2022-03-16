@@ -13,9 +13,9 @@
  */
 public class Solution {
     public IList<IList<int>> ZigzagLevelOrder(TreeNode root) {
-        IList<IList<int>> ordered = new List<IList<int>>();
+        IList<IList<int>> order = new List<IList<int>>();
         // return an empty list if root is null
-        if (root == null) return ordered;
+        if (root == null) return order;
         Queue<TreeNode> queue = new Queue<TreeNode>();
         // add root
         queue.Enqueue(root);
@@ -38,9 +38,9 @@ public class Solution {
                     queue.Enqueue(node.right);
                 }
             }
-            ordered.Add(level);
+            order.Add(level);
             zigzag = !zigzag;
         }
-        return ordered;        
+        return order;        
     }
 }

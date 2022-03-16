@@ -18,11 +18,11 @@ public class Solution {
         // case one of them is null return the other
         if(root1 == null) return root2;
         if(root2 == null) return root1;
-        // add values
+        // add root values
         TreeNode root = new TreeNode(root1.val + root2.val);
         // use recursive DFS to repeat the same operation as long 
         // as we go deeper
-        root.left = MergeTrees(root1.left, root2.left);
+        root.left = MergeTrees(root1.left, root2.left); 
         root.right = MergeTrees(root1.right, root2.right);        
         return root;
     }

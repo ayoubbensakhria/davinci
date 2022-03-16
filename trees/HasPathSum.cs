@@ -14,11 +14,11 @@
 public class Solution {
     public bool HasPathSum(TreeNode root, int targetSum) {
         if(root == null) return false;
-        // if sum is the value of the node itself
+        // if we reach the END and root.val is the rest targetSum then return true
         if(root.left == null && root.right == null && root.val == targetSum) return true;
-        // Decriment target sum by root.val till reaching 0
+        // Decriment target sum by root.val till reaching the cond root.val == targetSum
         targetSum -= root.val;
-        // return true if recursion is true from left or right
+        // return true if recursion is true from the left or the right
         return HasPathSum(root.left, targetSum) || HasPathSum(root.right, targetSum);
         
     }
