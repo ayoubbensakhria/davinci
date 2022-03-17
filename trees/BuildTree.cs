@@ -22,7 +22,7 @@ public class Solution {
         // else construct root
         TreeNode root = new TreeNode(preorder[0]);
         int root_index = Array.IndexOf(inorder, preorder[0]);
-        // construct left and right recursively
+        // construct left and right recursively starting from index 1
         root.left = BuildTree (preorder[1..(root_index+1)], inorder[..root_index]);
         root.right = BuildTree (preorder[(root_index+1)..], inorder[(root_index+1)..]);
         // return root
