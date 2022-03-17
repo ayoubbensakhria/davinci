@@ -25,6 +25,7 @@ public class Solution {
             int q_size = queue.Count();
             for (int i=0; i< q_size; i++){
                 TreeNode node = queue.Dequeue();
+                // if zigzag = true insert onto the top
                 if(zigzag){
                     level.Insert(0, node.val);
                 } else {
@@ -39,6 +40,7 @@ public class Solution {
                 }
             }
             order.Add(level);
+            // reverse zigzag order
             zigzag = !zigzag;
         }
         return order;        
