@@ -5,16 +5,22 @@ public class Solution {
         if (nums.Length == 0)
             return 0;
         int size = nums.Length;
-        // create size instances of 1
+        // create a list with length = size instances of 1 
+        // which is the minimum possible increasing sequence length
         var list = Enumerable.Repeat(1,size).ToArray();
 
         for (int i=1; i<size; i++){
+            // look back!
             for (int j=0; j<i; j++){
                 if(nums[i]>nums[j]){
+                    // in list
+                    // increment j then
+                    // take the max between list[i], list[j]+1
                     list[i] = Math.Max(list[i], list[j]+1);
                 }
             }
         }
+        // return the max value in list
         return list.Max();
     }
 }
