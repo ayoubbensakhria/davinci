@@ -6,6 +6,7 @@ public class Solution {
 
         int previousRobbed = 0, currentRobbed = 0, 
         previousNotRobbed = 0, currentNotRobbed = 0;
+        // we will excluse the last house
         for(int i=0; i<nums.Length-1; i++){
             int tempNotRobbed = previousNotRobbed;
             // set previous to current
@@ -19,6 +20,8 @@ public class Solution {
             // set current to temp
             currentRobbed = Math.Max(tempRobbed + nums[i+1], previousRobbed);   
         }
+        // since there are two possibilities of shifting
+        // we return the max value between currentRobbed and currentNotRobbed
         return Math.Max(currentRobbed, currentNotRobbed);
     }
 }
