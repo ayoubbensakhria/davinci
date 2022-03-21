@@ -9,4 +9,4 @@ class Solution:
                     list[i] = 0
                 elif i>0:
                     list[i] += list[i-1]
-        return list[width-1]
+        return list[-1]
