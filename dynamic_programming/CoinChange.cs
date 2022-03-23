@@ -1,7 +1,7 @@
 public class Solution {
     public int CoinChange(int[] coins, int amount) {
         // DP
-        int size = amount + 1;
+        int size = amount + 1; // because first element is 0
         var list = Enumerable.Repeat(Single.PositiveInfinity, size).ToArray();
         list[0] = 0;     
         for (int i=1; i<amount+1; i++){
@@ -13,6 +13,7 @@ public class Solution {
         }
         if(list.Last() == Single.PositiveInfinity)
             return  -1;
+        // return the last element
         return Convert.ToInt32(list.Last());
     }
 }
