@@ -5,11 +5,14 @@ public class Solution {
         // define lowest and highest
         int lowest = 0, highest = nums.Length;
         while(lowest<highest){
-            // define progressive middle
+            // since the max complexity is O(log n)
+            // define progressive middle and jump to lowest
             int middle = lowest + (highest-lowest)/2;
             if(nums[middle] >= target){
+                // move highest to middle
                 highest = middle;                
             } else {
+                // mover lowest towards highest
                 lowest = middle + 1;
             }
         }
