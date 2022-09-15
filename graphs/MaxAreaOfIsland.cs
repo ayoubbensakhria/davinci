@@ -17,6 +17,7 @@ public class Solution {
         }
         return max_count;
     }
+    // Second solution
     // recursion (DFS)
     int sink(int[][] grid, int i, int j){
         if (i<0 || j<0 || i==grid.Length || j==grid[i].Length || grid[i][j]==0)
