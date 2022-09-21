@@ -1,7 +1,9 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         size = amount + 1
+        # init list 
         list = [float('inf')] * size
+        # set first 0
         list[0] = 0
         
         for i in range(1, size):
